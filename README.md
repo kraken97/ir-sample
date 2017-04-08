@@ -8,19 +8,20 @@
 - 6. Як покращити.
 - 7. Як все це запустити.
 
-
 1. Це Веб застосування, яке демонструє  можливість пошуку на клієнті та на сервері з кешуванням данних.
 2. Використовувалися такі біблиотеки 
- react -...
- redux - state management 
- redux-saga - side-effects model 
- redux-search - client-search lib
- reselect - lib for data memoization
- immutalbe - lib for immutable data structures
- react-router - client rouning 
- auth0 - authentication
- json-server - mock-server
- faker - fake data
+   ```
+   react -...
+   redux - state management 
+   redux-saga - side-effects model 
+   redux-search - client-search lib
+   reselect - lib for data memoization
+   immutalbe - lib for immutable data structures
+   react-router - client rouning 
+   auth0 - authentication
+   json-server - mock-server
+   faker - fake data
+   ```
 
 3. Offline-first. Кешування запитів на клієнті робит программу більш офлайн спрямованою.
 4. Це веб застосування, яке просто кешує пошукові запити і надає можливість пошуку в кешованих запитах
