@@ -10,5 +10,6 @@ export default function* rootSaga() {
     fork(authSagas.watchLoginFailure),
     fork(authSagas.watchLogout),
     fork(booksSagas.watchBooksRequest),
+    fork(booksSagas.watchBooksLocalSearch),
   ];
 }

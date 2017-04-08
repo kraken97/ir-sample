@@ -20,6 +20,7 @@ export default (
     <IndexRoute component={HomePage} />
     <Route component={RestrictedPage}>
       <Route path="/books" component={BooksPage} />
+      <Route path="/books/:id" component={BooksPage} />
     </Route>
     <Route path="*" component={NotFoundPage} />
   </Route>

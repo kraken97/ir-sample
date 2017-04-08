@@ -43,7 +43,7 @@ export default {
       },
       {
         test: /\.css?$/,
-        loader: 'style-loader!css-loader?modules',
+        loader: 'style-loader!css-loader',
         include: path.join(__dirname, 'src'),
       },
       {

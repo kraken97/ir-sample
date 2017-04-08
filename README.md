@@ -1,61 +1,62 @@
-# [Starter Pack](https://starter-pack.603.nu)
+## Web search example.
+[](./images/login.png)
+- 1. Опис
+- 2. Список використаних бібліотек
+- 3. Навіщо воно потрібно.
+- 4. Що воно робить. 
+- 5. Як воно робить.
+- 6. Як покращити.
+- 7. Як все це запустити.
 
-[Bitbucket Pipelines status](https://bitbucket.org/jch254/starter-pack/addon/pipelines/home)
 
-## Overview
+1. Це Веб застосування, яке демонструє  можливість пошуку на клієнті та на сервері з кешуванням данних.
+2. Використовувалися такі біблиотеки 
+ react -...
+ redux - state management 
+ redux-saga - side-effects model 
+ redux-search - client-search lib
+ reselect - lib for data memoization
+ immutalbe - lib for immutable data structures
+ react-router - client rouning 
+ auth0 - authentication
+ json-server - mock-server
+ faker - fake data
 
-Starter Pack combines React, Redux and Redux-saga with Auth0's Lock as a starting point for modern
-web apps with solid authentication. Why reinvent the wheel? The app utilises Rebass and Reflexbox to
-keep things looking decent. I built this as a way to quickly prototype new ideas.
-
-The app contains a 'locked down' Books page which requires a user to log in/sign up before content
-will be visible. The data is read from a local JSON file as this is a only demonstration/starting
-point. In the real world data would be fetched from an API (see apiService.js).
-Protected routes in the API should check validity of the JWT token and return unauthorised
-if invalid. The app should then prompt the user to log in again. See [Serverless API](https://github.com/jch254/serverless-node-dynamodb-api)
-for a more detailed example of authentication in action.
-
-![Main](https://img.jch254.com/Main.png)
-
-![Modal](https://img.jch254.com/Login.png)
-
-![Recommended](https://img.jch254.com/Books.png)
-
-## Tools Used
-
-* [React](https://github.com/facebook/react)
-* [Redux](https://github.com/reactjs/redux) (ft. various middleware)
-* [Redux Saga](https://github.com/yelouafi/redux-saga)
-* [Auth0 Lock](https://github.com/auth0/lock)
-* [React Router](https://github.com/reactjs/react-router)
-* [Rebass](https://github.com/jxnblk/rebass)
-* [Reflexbox](https://github.com/jxnblk/reflexbox)
-* [Webpack](https://github.com/webpack/webpack)
-* [Node.js](https://github.com/nodejs/node)
-
-**AUTH0_CLIENT_ID and AUTH0_DOMAIN environment variable must be set before `yarn run` commands below.**
-
-E.g. `AUTH0_CLIENT_ID=YOUR_CLIENT_ID AUTH0_DOMAIN=YOUR_DOMAIN yarn run dev`
-
-## Running locally
-
-1. Sign up and create a new [Auth0 app](https://auth0.com)
-1. Add http://localhost:3001 as an Allowed Origin (CORS) for your newly created app (don't forget to press save)
-1. Run the following commands in the app's root directory then open http://localhost:3001
-
+3. Offline-first. Кешування запитів на клієнті робит программу більш офлайн спрямованою.
+4. Це веб застосування, яке просто кешує пошукові запити і надає можливість пошуку в кешованих запитах
+5. Програма викроистовує нормалізований вид данних 
+```js 
+{
+    [id]:{
+        id:id,
+        title: '',
+        author: '',
+        description: '',
+    }
+}
 ```
-yarn install
-yarn run dev
+А також іммутабільні структури данних для оптимізації і швидкої перевірки на рівнисть.
+Для пошуку на клієнті використовується redux-search. Він індексує колекцію и може робити пошук по заданим полям..
+Його можна розширити, додавши власний метод для індексування.
+
+Data flow виглядає наступним чином:
+1. на сервер йде пошуковий запит. 
+2. клієнт отримує його, нормалізує і зберігає під ключем ```data```.
+3. результат запиту на сервер зберігається в ключі ```ids```. Посилання на елемент з ```data```.
+4. потім наступні запити, які йдуть на пошук по кешованним даннми перезаписують данні в в ключі ```data```
+[](./images/ir.png)
+[](./images/store.png)
+
+6. Що можна покращити ?
+ - Кешувати данні не в пам'яті, а в кліентському сторейджі.
+   тут допоможе redux-persist або redux-offline
+ - Придумати кращий спосіб для серверних запитів.
+
+7. Як 3апустити ?
 ```
-
-## Building the production version
-1. Run the following commands in the app's root directory then check the /dist folder
-
+export AUTH0_DOMAIN='auth domain'
+export AUTH0_CLIENT_ID='auth id'
+// fake.js file for generaing fake data node fake.js
+npm run server
+npm run dev
 ```
-yarn install
-yarn run build
-```
-
-## Deployment/Infrastructure
-
-Refer to the [/infrastructure](../master/infrastructure) directory.
