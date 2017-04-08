@@ -1,5 +1,5 @@
 ## Web search example.
-[](./images/login.png)
+![](./images/login.png)
 - 1. Опис
 - 2. Список використаних бібліотек
 - 3. Навіщо воно потрібно.
@@ -44,8 +44,8 @@ Data flow виглядає наступним чином:
 2. клієнт отримує його, нормалізує і зберігає під ключем ```data```.
 3. результат запиту на сервер зберігається в ключі ```ids```. Посилання на елемент з ```data```.
 4. потім наступні запити, які йдуть на пошук по кешованним даннми перезаписують данні в в ключі ```data```
-[](./images/ir.png)
-[](./images/store.png)
+![](https://raw.githubusercontent.com/kraken97/ir-sample/master/images/ir.png)
+![](https://raw.githubusercontent.com/kraken97/ir-sample/master/images/store.png)
 
 6. Що можна покращити ?
  - Кешувати данні не в пам'яті, а в кліентському сторейджі.
