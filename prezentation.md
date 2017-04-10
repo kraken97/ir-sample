@@ -1,4 +1,5 @@
-# Розробка і оптимізація юзер інтерфейсу для пошукових систем.
+
+#  Розробка і оптимізація юзер інтерфейсу для пошукових систем.
 
 ## Автодоповнення при наборі тексту
 ![гарний приклад на quora](http://www.awesomescreenshot.com/upload//580301/540d1483-ef39-4ac9-7146-db90f3bfbbd3.png)
@@ -31,3 +32,15 @@
 
 ## Пошук по кешованим данним і відаленний серверний пошук.
 ![](https://raw.githubusercontent.com/kraken97/ir-sample/master/images/ir.png)
+
+
+
+### Джерела
+ - Приклади систем.
+   - medium.com
+   - stackoverflow.com
+   - quora.com
+ - Інформація про нормалізацію данніх 
+   - [normalizr](https://github.com/paularmstrong/normalizr)
+   - [redux](http://redux.js.org/docs/recipes/reducers/NormalizingStateShape.html) 
+ - Імутабільні данні [immutable](http://redux.js.org/docs/faq/ImmutableData.html) 
