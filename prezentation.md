@@ -33,7 +33,7 @@
 ## Пошук по кешованим данним і відаленний серверний пошук.
 ![](https://raw.githubusercontent.com/kraken97/ir-sample/master/images/ir.png)
 
-
+Автор: Жеребко Дмитро. 
 
 ### Джерела
  - Приклади систем.
